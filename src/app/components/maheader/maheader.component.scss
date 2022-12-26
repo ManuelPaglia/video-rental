@@ -1,0 +1,26 @@
+.ma-header{
+  display: flex;
+  height: 12vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.row{
+  width: 90vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.title-container
+{
+  height: 15vw;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.img-cont{
+  height: 15vw;
+  width: 15vw;
+}

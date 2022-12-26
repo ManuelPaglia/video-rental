@@ -1,17 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <app-maheader>
+    <h1 class="title">Ciao Manuel!</h1>
+    <p class="sub-title">Noleggia il tuo film preferito!</p>
+  </app-maheader>
+  <div class="searchbar-container">
+    <ion-searchbar
+      placeholder="Search for a Movie"
+      mode="ios"
+      clear-icon="close-circle-outline"
+      [(ngModel)]="searchedValue"
+      (ionChange)="onSearch()"
+    ></ion-searchbar>
+  </div>
+  <div class="card-list-container">
+    <app-movie-card
+      *ngFor="let movie of movies"
+      [movie]="movie"
+    ></app-movie-card>
+  </div>
 </ion-content>

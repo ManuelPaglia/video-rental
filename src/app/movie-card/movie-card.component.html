@@ -1,0 +1,19 @@
+<div class="movie-card">
+  <div class="row">
+    <img src="{{ movie.Poster }}" alt="Interstellar" />
+    <div class="movie-info">
+      <h2 class="movie-title">{{ movie.Title }}</h2>
+      <div class="total-rating">
+        <div class="star-rating">
+          <ion-icon name="star" color="danger"></ion-icon>
+          <p class="rating">4.8</p>
+        </div>
+        <div class="chip">
+          <p class="imdb-rating">IMDB 8.5</p>
+        </div>
+      </div>
+
+      <p class="regista">{{ movie.Year }}</p>
+    </div>
+  </div>
+</div>
