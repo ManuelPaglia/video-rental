@@ -41,3 +41,9 @@ ion-content {
 
   --background: linear-gradient(#282935, #0D1422);
 }
+.my-modal-class{
+  height: 50vh;
+  position: absolute;
+  top: 50%;
+  border-radius: 20px 20px 0 0;
+}

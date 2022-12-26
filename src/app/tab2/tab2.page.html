@@ -2,4 +2,10 @@
   <app-maheader>
     <h1 class="title">{{title}}</h1>
   </app-maheader>
+  <ion-button fill="clear" (click)="presentModal()">
+    <ion-icon slot="icon-only" name="options"></ion-icon>
+  </ion-button>
+  <div class="main-container">
+    <h4 *ngIf="movies.length === 0">Nessun campo di ricerca, aggiungine uno</h4>
+  </div>
 </ion-content>

@@ -6,7 +6,7 @@ import { Tab1Page } from './tab1.page';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { ComponentModule } from '../components/component.module';
-import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { MovieCardComponent } from '../components/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [Tab1Page, MovieCardComponent],
