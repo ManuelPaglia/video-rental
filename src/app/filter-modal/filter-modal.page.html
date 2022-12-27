@@ -15,29 +15,39 @@
     clear-icon="close-circle-outline"
     [(ngModel)]="searchValue"
   ></ion-searchbar>
-  <ion-list>
-    <ion-radio-group [allowEmptySelection]="true" value="turtles">
-      <ion-item>
-        <ion-label>Dogs</ion-label>
-        <ion-radio slot="end" value="dogs"></ion-radio>
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Filtra per {{type}}</ion-label>
       </ion-item>
+      <div slot="content">
+        <ion-radio-group
+          [allowEmptySelection]="false"
+          value="turtles"
+          [(ngModel)]="type"
+        >
+          <ion-item lines="none">
+            <ion-label>Tutti</ion-label>
+            <ion-radio slot="end" value="all" name="type"></ion-radio>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Film</ion-label>
+            <ion-radio slot="end" value="movie" name="type"></ion-radio>
+          </ion-item>
 
-      <ion-item>
-        <ion-label>Cats</ion-label>
-        <ion-radio slot="end" value="cats"></ion-radio>
-      </ion-item>
+          <ion-item lines="none">
+            <ion-label>Serie</ion-label>
+            <ion-radio slot="end" value="series" name="type"></ion-radio>
+          </ion-item>
 
-      <ion-item>
-        <ion-label>Turtles</ion-label>
-        <ion-radio slot="end" value="turtles"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Fish</ion-label>
-        <ion-radio slot="end" value="fish"></ion-radio>
-      </ion-item>
-    </ion-radio-group>
-  </ion-list>
+          <ion-item lines="none">
+            <ion-label>Episodi</ion-label>
+            <ion-radio slot="end" value="episode" name="type"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>
 <ion-footer>
   <ion-toolbar>

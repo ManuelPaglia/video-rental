@@ -8,3 +8,8 @@ ion-label{
 .space{
   height: 20px;
 }
+ion-item::part(native) {
+  background: rgba(27, 214, 117, 0);
+}
+
+

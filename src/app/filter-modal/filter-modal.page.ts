@@ -7,8 +7,12 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./filter-modal.page.scss'],
 })
 export class FilterModalPage implements OnInit {
-  constructor(private modalCtrl: ModalController) {}
   searchValue: string = '';
+  public type: string;
+  constructor(private modalCtrl: ModalController) {
+    this.type = 'all';
+  }
+
   ngOnInit() {}
   close() {
     this.modalCtrl.dismiss();
