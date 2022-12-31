@@ -1,8 +1,8 @@
 -- Your SQL goes here
 CREATE TABLE "reservations" (
   "id" int PRIMARY KEY,
-  "user_id" int,
-  "created_at" date,
-  "expired_at" date,
+  "user_id" int NOT NULL,
+  "created_at" date NOT NULL,
+  "expired_at" date NOT NULL,
   "price" smallint
 );

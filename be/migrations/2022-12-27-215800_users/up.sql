@@ -1,10 +1,10 @@
 -- Your SQL goes here
 CREATE TABLE "users" (
   "id" int PRIMARY KEY,
-  "name" varchar(30),
-  "email" varchar(50),
-  "password" varchar(50),
-  "created_at" date,
+  "name" varchar(30) NOT NULL,
+  "email" varchar(50) NOT NULL,
+  "password" varchar(50) NOT NULL,
+  "created_at" date NOT NULL,
   "deleted_at" date
 );
 
