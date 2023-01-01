@@ -1,6 +1,6 @@
 -- Your SQL goes here
 CREATE TABLE "users" (
-  "id" int PRIMARY KEY,
+  "id" serial PRIMARY KEY,
   "name" varchar(30) NOT NULL,
   "email" varchar(50) NOT NULL,
   "password" varchar(50) NOT NULL,
