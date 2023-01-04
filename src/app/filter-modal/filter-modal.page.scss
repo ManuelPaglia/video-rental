@@ -1,0 +1,15 @@
+ion-toolbar{
+  --background: #252736;
+
+}
+ion-label{
+  margin: 5vw;
+}
+.space{
+  height: 20px;
+}
+ion-item::part(native) {
+  background: rgba(27, 214, 117, 0);
+}
+
+

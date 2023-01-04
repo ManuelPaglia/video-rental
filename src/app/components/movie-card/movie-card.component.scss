@@ -1,20 +1,24 @@
 .movie-card {
-  margin: 30px 30px;
+  height: 65vh;
+  width: 80vw;
+  //margin: auto auto;
   border-radius: 15px;
   background-image: linear-gradient(#373847, #0D1422);
   ;
 }
 
 img {
-  height: 20vh;
+  height: 100%;
+  width: 100%;
   border-radius: 14px;
+  object-fit: cover;
 }
 
 .row {
   padding: 15px 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: cover;
 }
 
 h2 {
