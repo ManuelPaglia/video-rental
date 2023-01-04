@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SearchedFilm } from 'src/model/searchedFilm';
+import { SearchService } from 'src/service/search.service';
 import { FilterModalPage } from '../filter-modal/filter-modal.page';
 
 @Component({
@@ -8,11 +9,17 @@ import { FilterModalPage } from '../filter-modal/filter-modal.page';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
   title: String = 'Explore';
   movies: SearchedFilm[] = [];
 
-  constructor(private modalController: ModalController) {}
+  constructor(
+    private modalController: ModalController,
+    private service: SearchService
+  ) {}
+  ngOnInit(): void {
+    this.service.currentObject.subscribe((movies) => (this.movies = movies));
+  }
   async presentModal() {
     const modal = await this.modalController.create({
       component: FilterModalPage,

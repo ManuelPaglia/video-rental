@@ -7,52 +7,52 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <div class="input-cont">
+    <ion-item fill="solid">
+      <ion-label position="floating">Ricerca</ion-label>
+      <ion-input type="email" [(ngModel)]="searchValue"></ion-input>
+      <ion-note slot="helper">Inserisci il titolo di un film *</ion-note>
+    </ion-item>
+  </div>
+
+  <div class="input-cont">
+    <ion-item fill="solid">
+      <ion-label position="floating">Anno Film</ion-label>
+      <ion-input type="email" [(ngModel)]="yearValue"></ion-input>
+      <ion-note slot="helper">Inserisci l'anno del film</ion-note>
+    </ion-item>
+  </div>
   <div class="space"></div>
-  <ion-label>Ricerca</ion-label>
-  <ion-searchbar
-    placeholder="Search"
-    mode="ios"
-    clear-icon="close-circle-outline"
-    [(ngModel)]="searchValue"
-  ></ion-searchbar>
-  <ion-accordion-group>
-    <ion-accordion value="first">
-      <ion-item slot="header" color="light">
-        <ion-label>Filtra per {{type}}</ion-label>
-      </ion-item>
-      <div slot="content">
-        <ion-radio-group
-          [allowEmptySelection]="false"
-          value="turtles"
-          [(ngModel)]="type"
-        >
-          <ion-item lines="none">
-            <ion-label>Tutti</ion-label>
-            <ion-radio slot="end" value="all" name="type"></ion-radio>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Film</ion-label>
-            <ion-radio slot="end" value="movie" name="type"></ion-radio>
-          </ion-item>
+  <ion-label>Filtra per</ion-label>
+  <ion-radio-group
+    [allowEmptySelection]="false"
+    value="turtles"
+    [(ngModel)]="type"
+  >
+    <ion-item lines="none">
+      <ion-label>Tutti</ion-label>
+      <ion-radio slot="end" value="all" name="type"></ion-radio>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Film</ion-label>
+      <ion-radio slot="end" value="movie" name="type"></ion-radio>
+    </ion-item>
 
-          <ion-item lines="none">
-            <ion-label>Serie</ion-label>
-            <ion-radio slot="end" value="series" name="type"></ion-radio>
-          </ion-item>
+    <ion-item lines="none">
+      <ion-label>Serie</ion-label>
+      <ion-radio slot="end" value="series" name="type"></ion-radio>
+    </ion-item>
 
-          <ion-item lines="none">
-            <ion-label>Episodi</ion-label>
-            <ion-radio slot="end" value="episode" name="type"></ion-radio>
-          </ion-item>
-        </ion-radio-group>
-      </div>
-    </ion-accordion>
-  </ion-accordion-group>
+    <ion-item lines="none">
+      <ion-label>Episodi</ion-label>
+      <ion-radio slot="end" value="episode" name="type"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
     <div style="display: flex; align-items: center; justify-content: center">
-      <ion-button expand="block" style="width: 90vw"> Aggiungi </ion-button>
+      <ion-button expand="block" style="width: 90vw" (click)="done()"> Fatto </ion-button>
     </div>
   </ion-toolbar>
 </ion-footer>
