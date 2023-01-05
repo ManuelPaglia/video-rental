@@ -10,6 +10,7 @@
     <app-filter-movie-card
       *ngFor="let film of movies"
       [movie]="film"
+      (click)="goToDetail(film.imdbID)"
     ></app-filter-movie-card>
 
     <div>

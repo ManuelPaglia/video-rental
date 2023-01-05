@@ -10,7 +10,7 @@
   <div class="input-cont">
     <ion-item fill="solid">
       <ion-label position="floating">Ricerca</ion-label>
-      <ion-input type="email" [(ngModel)]="searchValue"></ion-input>
+      <ion-input type="text" [(ngModel)]="searchValue" [value]="searchValue"></ion-input>
       <ion-note slot="helper">Inserisci il titolo di un film *</ion-note>
     </ion-item>
   </div>
@@ -18,7 +18,7 @@
   <div class="input-cont">
     <ion-item fill="solid">
       <ion-label position="floating">Anno Film</ion-label>
-      <ion-input type="email" [(ngModel)]="yearValue"></ion-input>
+      <ion-input type="number" [(ngModel)]="yearValue" [value]="yearValue"></ion-input>
       <ion-note slot="helper">Inserisci l'anno del film</ion-note>
     </ion-item>
   </div>
