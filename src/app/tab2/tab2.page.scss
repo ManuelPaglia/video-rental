@@ -4,10 +4,15 @@ ion-button{
 .main-container{
   height: 75vh;
   display: flex;
+  margin: auto;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  overflow-y: scroll;
 }
 h4{
   margin: 2rem;
   text-align: center;
+}
+.space{
+  height: 30px;
 }
