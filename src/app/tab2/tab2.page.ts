@@ -3,7 +3,6 @@ import { ModalController } from '@ionic/angular';
 import { SearchedFilm } from 'src/model/searchedFilm';
 import { SearchService } from 'src/service/search.service';
 import { FilterModalPage } from '../filter-modal/filter-modal.page';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -16,8 +15,7 @@ export class Tab2Page implements OnInit {
 
   constructor(
     private modalController: ModalController,
-    private service: SearchService,
-    public router: Router
+    private service: SearchService
   ) {}
   ngOnInit(): void {
     this.service.currentObject.subscribe((movies) => (this.movies = movies));
@@ -29,9 +27,5 @@ export class Tab2Page implements OnInit {
       cssClass: 'my-custom-modal-css',
     });
     await modal.present();
-  }
-  goToDetail(idx: string) {
-    let url: string = 'detail/' + idx;
-    this.router.navigateByUrl(url);
   }
 }

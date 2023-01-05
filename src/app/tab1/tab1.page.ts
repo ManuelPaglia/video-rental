@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SearchedFilm } from 'src/model/searchedFilm';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-tab1',
@@ -18,7 +18,7 @@ export class Tab1Page implements OnInit {
     loop: true,
     centeredSlides: true,
   };
-  constructor(private http: HttpClient, public router: Router) {}
+  constructor(private http: HttpClient) {}
   ngOnInit() {
     let film = this.http.get(
       `https://www.omdbapi.com/?s=the+witcher&apikey=34b98368`
@@ -38,9 +38,5 @@ export class Tab1Page implements OnInit {
         this.movies = films.Search;
       });
     }
-  }
-  goToDetail(idx: string) {
-    let url: string = 'detail/' + idx;
-    this.router.navigateByUrl(url);
   }
 }
