@@ -1,0 +1,79 @@
+ion-button{
+  margin: 1vh 1vw;
+  position: absolute;
+  top: 0;
+}
+.general-cont{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: #171C29;
+}
+.image-cont{
+  height: 55vh;
+  width: 100vw;
+
+}
+.text-cont{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 44vh;
+  width: 100vw;
+  z-index: 0;
+  bottom: 0;
+  background-color: #171C29;
+  -webkit-box-shadow: 0px -26px 29px 19px #171C29;
+  -moz-box-shadow: 0px -26px 29px 19px #171C29;
+  -o-box-shadow: 0px -26px 29px 19px #171C29;
+  box-shadow: 0px -26px 29px 25px #171C29;
+}
+img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+h2{
+  margin-left: 5vw;
+}
+.chip{
+
+  background-color: #F8C94A;
+  border-radius: 16px;
+}
+p{
+  color: #171C29;
+  margin: 0;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 3px 10px;
+}
+.score-row{
+  display: flex;
+  margin-left: 5vw;
+  position: absolute;
+  z-index: 1;
+  top: 54vh;
+}
+.star-rating{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  p{
+    color: white;
+padding-left: 6px;
+  }
+}
+.genre-row{
+  display: flex;
+  margin-left: 3.5vw;
+
+}
+.genre-chip{
+  background-color: #2E333E;
+  border-radius: 15px;
+  margin-left: 1.5vw;
+  p{
+    color: white;
+  }
+}

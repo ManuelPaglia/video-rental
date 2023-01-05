@@ -15,7 +15,10 @@
   <div class="card-list-container">
     <ion-slides [options]="option">
       <ion-slide *ngFor="let movie of movies">
-        <app-movie-card [movie]="movie"></app-movie-card>
+        <app-movie-card
+          [movie]="movie"
+          (click)="goToDetail(movie.imdbID)"
+        ></app-movie-card>
       </ion-slide>
     </ion-slides>
   </div>
