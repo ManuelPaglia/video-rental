@@ -20,7 +20,7 @@ export class Tab1Page implements OnInit {
   constructor(private http: HttpClient) {}
   ngOnInit() {
     let film = this.http.get(
-      `http://www.omdbapi.com/?s=the+witcher&apikey=34b98368`
+      `https://www.omdbapi.com/?s=the+witcher&apikey=34b98368`
     );
     film.subscribe((films: any) => {
       this.movies = films.Search;
@@ -31,7 +31,7 @@ export class Tab1Page implements OnInit {
       this.ngOnInit();
     } else {
       let film = this.http.get(
-        `http://www.omdbapi.com/?s=${this.searchedValue}&apikey=34b98368`
+        `https://www.omdbapi.com/?s=${this.searchedValue}&apikey=34b98368`
       );
       film.subscribe((films: any) => {
         this.movies = films.Search;
