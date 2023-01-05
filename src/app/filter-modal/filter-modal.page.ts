@@ -10,7 +10,7 @@ import { SearchService } from 'src/service/search.service';
 export class FilterModalPage implements OnInit {
   searchValue: string = '';
   yearValue: string = '';
-  public type: string;
+  type: string;
   constructor(
     private modalCtrl: ModalController,
     private service: SearchService
@@ -23,7 +23,7 @@ export class FilterModalPage implements OnInit {
     this.modalCtrl.dismiss();
   }
   done() {
-    this.service.filterMovie(this.searchValue);
+    this.service.filterMovie(this.searchValue, this.yearValue, this.type);
     this.modalCtrl.dismiss();
   }
 }

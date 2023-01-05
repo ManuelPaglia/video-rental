@@ -24,10 +24,21 @@ export class SearchService {
     return movies;
   }
 
-  filterMovie(title: string) {
-    console.log('cerco');
+  filterMovie(title: string, type: string, year?: string) {
+
+    let anno: string = '';
+    let tipo: string = '';
+    // if (type !== 'all') {
+    //   tipo = type;
+    // }
+    // if (typeof year !== 'undefined') {
+    //   if (isNaN(+year) === false) {
+    //     anno = year;
+    //   }
+    // }
+    console.log(`${title} ${anno} ${tipo}`);
     const movies = this.httpClient.get(
-      `https://www.omdbapi.com/?s=${title}&apikey=34b98368`
+      `https://www.omdbapi.com/?s=${title}&y=${type}&type=${year}&apikey=34b98368`
     );
     movies.subscribe((films: any) => {
       this.theObjData.next(films.Search);
