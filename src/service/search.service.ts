@@ -19,7 +19,7 @@ export class SearchService {
   getMovies(title: string) {
     console.log('cerco');
     const movies = this.httpClient.get(
-      `https://www.omdbapi.com/?i=tt3896198&apikey=34b98368&s=${title}`
+      `httpss://www.omdbapi.com/?i=tt3896198&apikey=34b98368&s=${title}`
     );
     return movies;
   }
