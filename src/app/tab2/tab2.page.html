@@ -7,14 +7,12 @@
   </ion-button>
   <div class="main-container">
     <h4 *ngIf="movies.length === 0">Nessun campo di ricerca, aggiungine uno</h4>
-    <app-filter-movie-card
-      *ngFor="let film of movies"
-      [movie]="film"
-    ></app-filter-movie-card>
-
-    <div>
-
+    <div *ngFor="let film of movies">
+      <a [routerLink]="['/detail', film.imdbID]">
+        <app-filter-movie-card [movie]="film"></app-filter-movie-card>
+      </a>
     </div>
 
+    <div></div>
   </div>
 </ion-content>

@@ -7,7 +7,6 @@ import { SearchedFilm } from 'src/model/searchedFilm';
   providedIn: 'root',
 })
 export class SearchService {
-  movies: SearchedFilm[] = [];
   private theObjData: BehaviorSubject<SearchedFilm[]> = new BehaviorSubject<
     SearchedFilm[]
   >([]);
@@ -16,30 +15,26 @@ export class SearchService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getMovies(title: string) {
+  getMovie(id: string | null) {
     console.log('cerco');
-    const movies = this.httpClient.get(
-      `httpss://www.omdbapi.com/?i=tt3896198&apikey=34b98368&s=${title}`
+    const movie = this.httpClient.get(
+      `https://www.omdbapi.com/?i=${id}&apikey=34b98368`
     );
-    return movies;
+    return movie;
   }
 
   filterMovie(title: string, type: string, year?: string) {
-
-    let anno: string = '';
-    let tipo: string = '';
-    // if (type !== 'all') {
-    //   tipo = type;
-    // }
-    // if (typeof year !== 'undefined') {
-    //   if (isNaN(+year) === false) {
-    //     anno = year;
-    //   }
-    // }
-    console.log(`${title} ${anno} ${tipo}`);
-    const movies = this.httpClient.get(
-      `https://www.omdbapi.com/?s=${title}&y=${type}&type=${year}&apikey=34b98368`
-    );
+    let baseUrlSearch: string = `https://www.omdbapi.com/?s=${title}&apikey=34b98368`;
+    if (type !== 'all') {
+      console.log(type + 'd');
+      baseUrlSearch = baseUrlSearch + `&type=${type}`;
+    }
+    if (typeof year !== 'undefined') {
+      if (isNaN(+year) === false) {
+        baseUrlSearch = baseUrlSearch + `&y=${year}`;
+      }
+    }
+    const movies = this.httpClient.get(baseUrlSearch);
     movies.subscribe((films: any) => {
       this.theObjData.next(films.Search);
     });

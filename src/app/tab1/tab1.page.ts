@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SearchedFilm } from 'src/model/searchedFilm';
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',

@@ -5,7 +5,7 @@ WORKDIR /usr/src
 RUN apt-get update -y
 RUN apt-get install libpq-dev -y
 
-COPY Cargo.toml Cargo.lock /usr/src/video-rental-be/
+COPY Cargo.toml /usr/src/video-rental-be/
 
 WORKDIR /usr/src/video-rental-be/
 
@@ -30,4 +30,4 @@ EXPOSE 8000
 ENV ROCKET_ADDRESS=0.0.0.0
 
 # Run the application
-ENTRYPOINT ["/usr/local/bin/video-rental-be"]
+CMD ["/usr/local/bin/video-rental-be"]

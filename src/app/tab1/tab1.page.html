@@ -15,7 +15,9 @@
   <div class="card-list-container">
     <ion-slides [options]="option">
       <ion-slide *ngFor="let movie of movies">
-        <app-movie-card [movie]="movie"></app-movie-card>
+        <a [routerLink]="['/detail', movie.imdbID]">
+          <app-movie-card [movie]="movie"></app-movie-card>
+        </a>
       </ion-slide>
     </ion-slides>
   </div>

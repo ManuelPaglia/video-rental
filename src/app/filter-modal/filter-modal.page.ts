@@ -23,7 +23,7 @@ export class FilterModalPage implements OnInit {
     this.modalCtrl.dismiss();
   }
   done() {
-    this.service.filterMovie(this.searchValue, this.yearValue, this.type);
+    this.service.filterMovie(this.searchValue, this.type, this.yearValue);
     this.modalCtrl.dismiss();
   }
 }
