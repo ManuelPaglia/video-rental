@@ -18,7 +18,7 @@ RUN cargo build --release
 
 ################
 ##### Runtime
-FROM docker.io/debian:bullseye-slim AS runtime
+FROM debian:bullseye-slim AS runtime 
 RUN apt-get update -y
 RUN apt-get install libpq5 -y
 ARG DATABASE_URL
@@ -27,6 +27,7 @@ ENV DATABASE_URL=${DATABASE_URL}
 COPY --from=builder /usr/src/video-rental-be/target/release/video-rental-be /usr/local/bin
 
 EXPOSE 8000
+ENV ROCKET_ADDRESS=0.0.0.0
 
 # Run the application
 CMD ["/usr/local/bin/video-rental-be"]

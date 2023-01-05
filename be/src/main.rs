@@ -1,13 +1,35 @@
 #[macro_use]
 extern crate rocket;
 use std::str::FromStr;
-use jsonwebtoken::{encode, decode, Header, Algorithm, Validation, EncodingKey, DecodingKey};
+use jsonwebtoken::{encode,  Header, EncodingKey};
 use rocket::serde::{Serialize, json::Json,Deserialize};
+use rocket::response::status;
 mod store;
 
-#[get("/")]
-fn index() -> &'static str {
-    "Hello, world!"
+
+#[get("/v1/health")]
+fn healthcheck() -> status::NoContent {
+    status::NoContent
+}
+
+#[derive(Responder)]
+#[response(status = 418, content_type = "json")]
+struct HealthCheck{
+    status: &'static str
+}
+
+#[head("/v1/health/live")]
+fn is_api_alive() -> HealthCheck{
+    return HealthCheck { status: "OK"}
+}
+
+#[derive(Responder)]
+#[response(status = 418, content_type = "json")]
+struct TeapotJson(&'static str);
+
+#[get("/egg")]
+fn easter_egg() -> TeapotJson {
+    TeapotJson("Patrizio was here")
 }
 
 /*
@@ -31,27 +53,37 @@ struct Claims {
     user_id: u32
 }
 
-#[post("/signup")]
+#[post("/v1/signup")]
 fn signup() -> Json<JWTPayload> {
     // TODO use a secret key to secure the actual JWT
     let token = encode(&Header::default(), &Claims{sub:String::from_str("12345").unwrap(),company: String::from_str("barbone").unwrap(),exp:3600,user_id:42}, &EncodingKey::from_secret("secret".as_ref())).unwrap();
     return Json(JWTPayload{payload: token});
 }
 
-/*
-#[get("/reservations/:id")]
-fn
-*/ 
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+struct Reservation{
+    id: u32
+}
 
-/*
-#[post("/reservation")]
-fn
-*/ 
+#[get("/v1/reservations/<reservation_id>")]
+fn retrieve_single_reservation(reservation_id: u32) -> Json<Reservation>{
+    return Json(Reservation { id: reservation_id })
+}
 
-/*
-#[delete("/reservation/")]
-fn
-*/ 
+#[post("/v1/reservation")]
+fn retrieve_reservations() -> Json<Vec<Reservation>> {
+    return Json(vec![Reservation{id:12},Reservation{id:13}])
+}
+
+#[derive(Responder)]
+#[response(status = 200, content_type = "json")]
+struct OKReservationDeletion(&'static str);
+
+#[delete("/reservation/:id")]
+fn delete_reservation() -> OKReservationDeletion{
+    OKReservationDeletion("{ \"status\": \"OK\" }")
+}
 
 /*
 #[put("/wallet")]
@@ -63,17 +95,11 @@ fn
 fn
 */ 
 
-
-/*
-#[get("/egg")] meme endpoint return the best status code
-fn
-*/ 
-
 #[launch]
 fn rocket() -> _ {
     println!("connecting to database");
     store::extablish_connection();
     println!("connection to database successfully extablished");
     rocket::build()
-        .mount("/v1", routes![index,signup])
+        .mount("/", routes![is_api_alive,easter_egg,signup,healthcheck,delete_reservation,retrieve_reservations,retrieve_single_reservation])
 }
