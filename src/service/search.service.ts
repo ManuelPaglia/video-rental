@@ -19,7 +19,7 @@ export class SearchService {
   getMovies(title: string) {
     console.log('cerco');
     const movies = this.httpClient.get(
-      `http://www.omdbapi.com/?i=tt3896198&apikey=34b98368&s=${title}`
+      `https://www.omdbapi.com/?i=tt3896198&apikey=34b98368&s=${title}`
     );
     return movies;
   }
@@ -27,7 +27,7 @@ export class SearchService {
   filterMovie(title: string) {
     console.log('cerco');
     const movies = this.httpClient.get(
-      `http://www.omdbapi.com/?s=${title}&apikey=34b98368`
+      `https://www.omdbapi.com/?s=${title}&apikey=34b98368`
     );
     movies.subscribe((films: any) => {
       this.theObjData.next(films.Search);
