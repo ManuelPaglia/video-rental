@@ -30,4 +30,4 @@ EXPOSE 8000
 ENV ROCKET_ADDRESS=0.0.0.0
 
 # Run the application
-CMD ["/usr/local/bin/video-rental-be"]
+ENTRYPOINT ["/usr/local/bin/video-rental-be"]
