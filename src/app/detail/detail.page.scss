@@ -11,6 +11,17 @@
   width: 100vw;
   background-color: #171C29;
 }
+.spinner{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #171C29;
+  ion-spinner{
+    color: white;
+  }
+}
 .image-cont{
   height: 55vh;
   width: 100vw;
@@ -149,3 +160,6 @@ padding-left: 6px;
 //   }
 // }
 
+::-webkit-scrollbar {
+  display: none;
+}

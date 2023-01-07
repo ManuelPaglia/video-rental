@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class DetailPage implements OnInit {
   item: any = {};
   isNan: boolean = false;
+  show: boolean = false;
   genreArray: [] = [];
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class DetailPage implements OnInit {
     );
     film.subscribe((film: any) => {
       this.item = film;
+      this.show = true;
       if (isNaN(+film.Metascore)) {
         this.isNan = !this.isNan;
       }

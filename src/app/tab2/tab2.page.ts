@@ -12,13 +12,17 @@ import { FilterModalPage } from '../filter-modal/filter-modal.page';
 export class Tab2Page implements OnInit {
   title: String = 'Explore';
   movies: SearchedFilm[] = [];
+  //show: boolean = false;
 
   constructor(
     private modalController: ModalController,
     private service: SearchService
   ) {}
   ngOnInit(): void {
-    this.service.currentObject.subscribe((movies) => (this.movies = movies));
+    this.service.currentObject.subscribe((movies) => {
+      this.movies = movies;
+      //this.show = true;
+    });
   }
   async presentModal() {
     const modal = await this.modalController.create({

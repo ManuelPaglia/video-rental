@@ -16,3 +16,13 @@ h4{
 .space{
   height: 30px;
 }
+.spinner{
+  height: 75vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ion-spinner{
+    color: white;
+  }
+}

@@ -5,10 +5,13 @@
   <ion-button fill="clear" (click)="presentModal()">
     <ion-icon slot="icon-only" name="options"></ion-icon>
   </ion-button>
+  <!-- <div class="spinner" *ngIf="show">
+    <ion-spinner name="dots"></ion-spinner>
+  </div> -->
   <div class="main-container">
     <h4 *ngIf="movies.length === 0">Nessun campo di ricerca, aggiungine uno</h4>
     <div *ngFor="let film of movies">
-      <a [routerLink]="['/detail', film.imdbID]">
+      <a [routerLink]="['/detail', film.imdbID]" style="text-decoration: none">
         <app-filter-movie-card [movie]="film"></app-filter-movie-card>
       </a>
     </div>

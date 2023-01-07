@@ -1,5 +1,8 @@
 <ion-content>
-  <div class="general-cont" *ngIf="item !== {}">
+  <div class="spinner" *ngIf="!show">
+      <ion-spinner name="dots"></ion-spinner>
+  </div>
+  <div class="general-cont" *ngIf="show">
     <div class="image-cont"><img [src]="item.Poster" alt="" srcset="" /></div>
     <div class="duration-chip"><p>{{item.Runtime}}</p></div>
     <div class="avaible-chip"><p>Avaible</p></div>
