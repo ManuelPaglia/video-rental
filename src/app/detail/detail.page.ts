@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilmDetail } from 'src/model/detailFilm';
 import { Location } from '@angular/common';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-detail',
@@ -13,11 +14,13 @@ export class DetailPage implements OnInit {
   item: any = {};
   isNan: boolean = false;
   show: boolean = false;
+  postJWT: string = '';
+  errorMsh: string = '';
   genreArray: [] = [];
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private location: Location
+    private location: Location,
   ) {}
 
   ngOnInit() {
@@ -36,5 +39,21 @@ export class DetailPage implements OnInit {
   }
   back() {
     this.location.back();
+  }
+  singIn() {
+    let header = new HttpHeaders();
+    header.set('Origin', '*');
+    this.http
+      .post<any>(
+        'https://video-rental-be.onrender.com/v1/signin',
+        {
+          email: 'prova@gmail.com',
+          password: '12345678',
+        },
+        { headers: header }
+      )
+      .subscribe((data) => {
+        alert(data);
+      });
   }
 }

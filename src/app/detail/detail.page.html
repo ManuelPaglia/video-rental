@@ -1,6 +1,6 @@
 <ion-content>
   <div class="spinner" *ngIf="!show">
-      <ion-spinner name="dots"></ion-spinner>
+    <ion-spinner name="dots"></ion-spinner>
   </div>
   <div class="general-cont" *ngIf="show">
     <div class="image-cont"><img [src]="item.Poster" alt="" srcset="" /></div>
@@ -11,7 +11,11 @@
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </div>
-
+    <div class="bookmark">
+      <ion-fab-button color="warning" size="small" (click)="singIn()" >
+        <ion-icon name="bookmark-outline"></ion-icon>
+    </ion-fab-button>
+    </div>
     <div class="score-row">
       <div class="chip">
         <p>IMDB {{item.imdbRating}}</p>
@@ -21,7 +25,6 @@
         <p>{{item.Metascore/20}}</p>
       </div>
     </div>
-
     <div class="text-cont">
       <div style="height: 2vh"></div>
       <div class="wrapper">
