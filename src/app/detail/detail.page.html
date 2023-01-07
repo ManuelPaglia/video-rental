@@ -1,24 +1,40 @@
 <ion-content>
   <div class="general-cont" *ngIf="item !== {}">
     <div class="image-cont"><img [src]="item.Poster" alt="" srcset="" /></div>
-  </div>
-  <ion-button fill="clear" (click)="back()">
-    <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
-  </ion-button>
-  <div class="score-row">
-    <div class="chip">
-      <p>IMDB {{item.imdbRating}}</p>
+    <div class="duration-chip"><p>{{item.Runtime}}</p></div>
+    <div class="avaible-chip"><p>Avaible</p></div>
+    <div class="back">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
     </div>
-    <div class="star-rating" *ngIf="!isNan">
-      <ion-icon slot="icon-only" name="star-outline"></ion-icon>
-      <p>{{item.Metascore/20}}</p>
-    </div>
-  </div>
 
-  <div class="text-cont">
-    <h2>{{item.Title}}</h2>
-    <div class="genre-row">
-      <div class="genre-chip" *ngFor="let item of genreArray"><p>{{item}}</p></div>
+    <div class="score-row">
+      <div class="chip">
+        <p>IMDB {{item.imdbRating}}</p>
+      </div>
+      <div class="star-rating" *ngIf="!isNan">
+        <ion-icon slot="icon-only" name="star-outline"></ion-icon>
+        <p>{{item.Metascore/20}}</p>
+      </div>
+    </div>
+
+    <div class="text-cont">
+      <div style="height: 2vh"></div>
+      <div class="wrapper">
+        <div class="marquee">
+          <p>{{item.Title}}</p>
+        </div>
+      </div>
+      <div class="genre-row">
+        <div class="genre-chip" *ngFor="let item of genreArray">
+          <p>{{item}}</p>
+        </div>
+      </div>
+      <div class="plot-cont"><p>{{item.Plot}}</p></div>
+      <div class="reserve-cont">
+        <ion-button expand="block"> Noleggia </ion-button>
+      </div>
     </div>
   </div>
 </ion-content>

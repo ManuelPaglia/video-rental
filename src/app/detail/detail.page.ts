@@ -22,7 +22,7 @@ export class DetailPage implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
     let film = this.http.get(
-      `https://www.omdbapi.com/?i=${id}&apikey=34b98368`
+      `https://www.omdbapi.com/?i=${id}&apikey=34b98368&plot=full`
     );
     film.subscribe((film: any) => {
       this.item = film;
@@ -31,7 +31,6 @@ export class DetailPage implements OnInit {
       }
       this.genreArray = film.Genre.split(',');
     });
-
   }
   back() {
     this.location.back();

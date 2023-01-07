@@ -1,7 +1,9 @@
-ion-button{
-  margin: 1vh 1vw;
-  position: absolute;
-  top: 0;
+.back{
+  ion-button{
+    margin: 1vh 1vw;
+    position: absolute;
+    top: 0;
+  }
 }
 .general-cont{
   position: absolute;
@@ -32,9 +34,6 @@ img{
   height: 100%;
   width: 100%;
   object-fit: cover;
-}
-h2{
-  margin-left: 5vw;
 }
 .chip{
 
@@ -67,9 +66,10 @@ padding-left: 6px;
 .genre-row{
   display: flex;
   margin-left: 3.5vw;
-
+  overflow-x: scroll;
 }
 .genre-chip{
+
   background-color: #2E333E;
   border-radius: 15px;
   margin-left: 1.5vw;
@@ -77,3 +77,75 @@ padding-left: 6px;
     color: white;
   }
 }
+.duration-chip{
+  position: absolute;
+  top: 2vh;
+  right: 5vw;
+  background-color: #2E333E;
+  border-radius: 15px;
+  margin-left: 1.5vw;
+  p{
+    color: white;
+  }
+}
+.avaible-chip{
+    position: absolute;
+    top: 54vh;
+    z-index: 1;
+    background-color: #026b08;
+    border-radius: 15px;
+    right: 5vw;
+    p{
+      color: white;
+    }
+
+}
+.plot-cont{
+  margin: 2vh 5vw;
+  height: 22vh;
+  overflow: scroll;
+  p{
+    color: white;
+    text-align: justify;
+  }
+}
+
+.reserve-cont{
+  width: 90vw;
+  padding-top: 1vh;
+  margin: 0 auto;
+  ion-button{
+    color: #171C29;
+  }
+}
+
+.wrapper {
+  padding: 0 5vw;
+  max-width: 100%;
+  overflow: scroll;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: scroll;
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0;
+  color: white;
+}
+
+// @keyframes marquee {
+//   0% {
+//     transform: translate3d(0, 0, 0);
+//   }
+//   100% {
+//     transform: translate3d(-50%, 0, 0);
+//   }
+// }
+

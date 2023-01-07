@@ -18,7 +18,7 @@ export class SearchService {
   getMovie(id: string | null) {
     console.log('cerco');
     const movie = this.httpClient.get(
-      `https://www.omdbapi.com/?i=${id}&apikey=34b98368`
+      `https://www.omdbapi.com/?i=${id}&apikey=34b98368&plot=full`
     );
     return movie;
   }

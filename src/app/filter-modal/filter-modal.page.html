@@ -10,7 +10,11 @@
   <div class="input-cont">
     <ion-item fill="solid">
       <ion-label position="floating">Ricerca</ion-label>
-      <ion-input type="text" [(ngModel)]="searchValue" [value]="searchValue"></ion-input>
+      <ion-input
+        type="text"
+        [(ngModel)]="searchValue"
+        [value]="searchValue"
+      ></ion-input>
       <ion-note slot="helper">Inserisci il titolo di un film *</ion-note>
     </ion-item>
   </div>
@@ -18,7 +22,11 @@
   <div class="input-cont">
     <ion-item fill="solid">
       <ion-label position="floating">Anno Film</ion-label>
-      <ion-input type="number" [(ngModel)]="yearValue" [value]="yearValue"></ion-input>
+      <ion-input
+        type="number"
+        [(ngModel)]="yearValue"
+        [value]="yearValue"
+      ></ion-input>
       <ion-note slot="helper">Inserisci l'anno del film</ion-note>
     </ion-item>
   </div>
@@ -51,8 +59,10 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <div style="display: flex; align-items: center; justify-content: center">
-      <ion-button expand="block" style="width: 90vw" (click)="done()"> Fatto </ion-button>
+    <div class="reserve-cont">
+      <ion-button expand="block" (click)="done()">
+        Fatto
+      </ion-button>
     </div>
   </ion-toolbar>
 </ion-footer>
