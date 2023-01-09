@@ -1,7 +1,7 @@
+import { SearchService } from 'src/service/search.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { SearchedFilm } from 'src/model/searchedFilm';
-
 
 @Component({
   selector: 'app-tab1',
@@ -9,8 +9,8 @@ import { SearchedFilm } from 'src/model/searchedFilm';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page implements OnInit {
-  title: String = 'Home';
-  searchedValue: String = '';
+  title: string = 'Home';
+  searchedValue: string = '';
   movies: SearchedFilm[] = [];
   option = {
     slidesPerView: 1.2,
@@ -18,11 +18,9 @@ export class Tab1Page implements OnInit {
     loop: true,
     centeredSlides: true,
   };
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private searchService: SearchService) {}
   ngOnInit() {
-    let film = this.http.get(
-      `https://www.omdbapi.com/?s=the+witcher&apikey=34b98368`
-    );
+    let film = this.searchService.getInitialMovie();
     film.subscribe((films: any) => {
       this.movies = films.Search;
     });
@@ -31,9 +29,7 @@ export class Tab1Page implements OnInit {
     if (this.searchedValue == '') {
       this.ngOnInit();
     } else {
-      let film = this.http.get(
-        `https://www.omdbapi.com/?s=${this.searchedValue}&apikey=34b98368`
-      );
+      let film = this.searchService.getHomeMovie(this.searchedValue);
       film.subscribe((films: any) => {
         this.movies = films.Search;
       });

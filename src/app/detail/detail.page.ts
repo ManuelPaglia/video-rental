@@ -1,3 +1,4 @@
+import { SearchService } from 'src/service/search.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -21,13 +22,12 @@ export class DetailPage implements OnInit {
     private route: ActivatedRoute,
     private http: HttpClient,
     private location: Location,
+    private service: SearchService
   ) {}
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-    let film = this.http.get(
-      `https://www.omdbapi.com/?i=${id}&apikey=34b98368&plot=full`
-    );
+    let film = this.service.getMovie(id!);
     film.subscribe((film: any) => {
       this.item = film;
       this.show = true;

@@ -15,12 +15,10 @@ export class SearchService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getMovie(id: string | null) {
-    console.log('cerco');
-    const movie = this.httpClient.get(
+  getMovie(id: string) {
+    return this.httpClient.get(
       `https://www.omdbapi.com/?i=${id}&apikey=34b98368&plot=full`
     );
-    return movie;
   }
 
   filterMovie(title: string, type: string, year?: string) {
@@ -38,5 +36,17 @@ export class SearchService {
     movies.subscribe((films: any) => {
       this.theObjData.next(films.Search);
     });
+  }
+
+  getHomeMovie(searchedValue: string) {
+    return this.httpClient.get(
+      `https://www.omdbapi.com/?s=${searchedValue}&apikey=34b98368`
+    );
+  }
+
+  getInitialMovie() {
+    return this.httpClient.get(
+      `https://www.omdbapi.com/?s=the+witcher&apikey=34b98368`
+    );
   }
 }
